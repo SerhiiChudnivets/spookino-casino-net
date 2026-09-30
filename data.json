@@ -24,66 +24,60 @@
       "heroSubtitle": "MAKE EVERY SPIN COUNT",
       "heroBadge": "Spookino Casino – Your Next Big Win Awaits",
       "ctaText": "CLAIM BONUS",
-      "tagline": "400% Bonus up to £1000 + 250 FS",
+      "tagline": "",
       "heroImage": "",
       "template": "homepage",
       "isHomepage": false,
       "order": 0,
       "lang": "en-GB",
       "faqTitle": "Frequently Asked Questions (FAQ)",
-      "popupText": "400% Bonus up to £1000 + 250 FS",
+      "popupText": "",
       "popupLogo": "",
       "sections": null,
       "slots": [
         {
           "link": "/play/",
           "logo": "",
-          "name": " Razor Shark",
-          "Name": " Razor Shark"
+          "name": " ",
+          "Name": " "
         },
         {
           "link": "/play/",
-          "logo": "/uploads/67208159a9e5f8396e714ec60dcf5e83.webp",
-          "name": "Stormforged",
-          "Name": "Stormforged",
-          "logo_alt": "stormforged"
+          "logo": "",
+          "name": "",
+          "Name": ""
         },
         {
           "link": "/play/",
-          "logo": "/uploads/498dbf89ecad9e8a4c63a2acc87cb117.webp",
-          "name": "Penalty Shoot",
-          "Name": "Penalty Shoot",
-          "logo_alt": "Penalty Shoot"
+          "logo": "",
+          "name": "",
+          "Name": ""
         },
         {
           "link": "/play/",
-          "logo": "/uploads/203c5ede1f8648621ea02951729b852f.webp",
-          "name": "JetX",
-          "Name": "JetX",
-          "logo_alt": "JetX"
+          "logo": "",
+          "name": "",
+          "Name": ""
         }
       ],
       "bonuses": [
         {
           "link": "/play/",
-          "logo": "/uploads/84b8bb6efb01f9fe942a68455c4a62db.webp",
-          "name": "Welcome Offer: Up to 1,000 Free Spins",
-          "Name": "Welcome Offer: Up to 1,000 Free Spins",
-          "logo_alt": "Welcome Bonus"
+          "logo": "",
+          "name": "",
+          "Name": ""
         },
         {
           "link": "/play/",
-          "logo": "/uploads/ac7e9cfbff64af271c1b585bbbb96a1d.webp",
-          "name": "Weekly Cashback: Get 10% Back",
-          "Name": "Weekly Cashback: Get 10% Back",
-          "logo_alt": "Reload Bonus"
+          "logo": "",
+          "name": "",
+          "Name": ""
         },
         {
           "link": "/play/",
-          "logo": "/uploads/e8e32e9f5bba4b2b960098a8e5b37406.webp",
-          "name": "Reload Perks: Weekly Match Bonuses",
-          "Name": "Reload Perks: Weekly Match Bonuses",
-          "logo_alt": "Cashback Bonus"
+          "logo": "",
+          "name": "",
+          "Name": ""
         }
       ],
       "faq": [],
@@ -94,7 +88,6 @@
       "updatedAt": {},
       "globalSlotSet": null,
       "globalReviewSet": null,
-      "popup_text": "400% Bonus up to £1000 + 250 FS",
       "hero_title": "Spookino Casino",
       "hero_subtitle": "MAKE EVERY SPIN COUNT",
       "seo_title": "Spookino Casino UK: 100% Bonus up to £500 + 200 Free Spins",
@@ -149,10 +142,10 @@
   "hero_subtitle": "MAKE EVERY SPIN COUNT",
   "hero_badge": "Spookino Casino – Your Next Big Win Awaits",
   "cta_text": "CLAIM BONUS",
-  "tagline": "400% Bonus up to £1000 + 250 FS",
+  "tagline": "",
   "features_list": null,
   "footer_text": "© 2026. Spookino Casino. All rights reserved",
-  "popup_text": "400% Bonus up to £1000 + 250 FS",
+  "popup_text": "",
   "faq_title": "Frequently Asked Questions (FAQ)",
   "login_text": "Login",
   "register_text": "Sign Up",
@@ -281,52 +274,46 @@
     {
       "link": "/play/",
       "logo": "",
-      "name": " Razor Shark",
-      "Name": " Razor Shark"
+      "name": " ",
+      "Name": " "
     },
     {
       "link": "/play/",
-      "logo": "/uploads/67208159a9e5f8396e714ec60dcf5e83.webp",
-      "name": "Stormforged",
-      "Name": "Stormforged",
-      "logo_alt": "stormforged"
+      "logo": "",
+      "name": "",
+      "Name": ""
     },
     {
       "link": "/play/",
-      "logo": "/uploads/498dbf89ecad9e8a4c63a2acc87cb117.webp",
-      "name": "Penalty Shoot",
-      "Name": "Penalty Shoot",
-      "logo_alt": "Penalty Shoot"
+      "logo": "",
+      "name": "",
+      "Name": ""
     },
     {
       "link": "/play/",
-      "logo": "/uploads/203c5ede1f8648621ea02951729b852f.webp",
-      "name": "JetX",
-      "Name": "JetX",
-      "logo_alt": "JetX"
+      "logo": "",
+      "name": "",
+      "Name": ""
     }
   ],
   "Bonuses": [
     {
       "link": "/play/",
-      "logo": "/uploads/84b8bb6efb01f9fe942a68455c4a62db.webp",
-      "name": "Welcome Offer: Up to 1,000 Free Spins",
-      "Name": "Welcome Offer: Up to 1,000 Free Spins",
-      "logo_alt": "Welcome Bonus"
+      "logo": "",
+      "name": "",
+      "Name": ""
     },
     {
       "link": "/play/",
-      "logo": "/uploads/ac7e9cfbff64af271c1b585bbbb96a1d.webp",
-      "name": "Weekly Cashback: Get 10% Back",
-      "Name": "Weekly Cashback: Get 10% Back",
-      "logo_alt": "Reload Bonus"
+      "logo": "",
+      "name": "",
+      "Name": ""
     },
     {
       "link": "/play/",
-      "logo": "/uploads/e8e32e9f5bba4b2b960098a8e5b37406.webp",
-      "name": "Reload Perks: Weekly Match Bonuses",
-      "Name": "Reload Perks: Weekly Match Bonuses",
-      "logo_alt": "Cashback Bonus"
+      "logo": "",
+      "name": "",
+      "Name": ""
     }
   ],
   "Reviews": null,
@@ -348,8 +335,8 @@
       "question": "Can I play Spookino games on my mobile phone?"
     }
   ],
-  "_generated_at": "2026-09-30T14:16:13.804Z",
+  "_generated_at": "2026-09-30T14:18:33.632Z",
   "_version": "1.0.0",
-  "_last_deploy": "2026-09-30T14:16:17.127Z",
-  "_deploy_trigger": "3ydol"
+  "_last_deploy": "2026-09-30T14:18:34.239Z",
+  "_deploy_trigger": "rb8ml"
 }
