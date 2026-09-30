@@ -187,31 +187,25 @@
   "header_menu": [
     {
       "link": "/play/",
-      "label": "Login",
+      "label": "Bonuses",
       "submenu": [],
       "openInNewTab": false
     },
     {
       "link": "/play/",
-      "label": "Application",
+      "label": "Promotions",
       "submenu": [],
       "openInNewTab": false
     },
     {
       "link": "/play/",
-      "label": "Review",
+      "label": "Support",
       "submenu": [],
       "openInNewTab": false
     },
     {
       "link": "/play/",
-      "label": "Bonus",
-      "submenu": [],
-      "openInNewTab": false
-    },
-    {
-      "link": "/play/",
-      "label": "Slots",
+      "label": "Games",
       "submenu": [],
       "openInNewTab": false
     },
@@ -225,19 +219,7 @@
   "footer_menu": [
     {
       "link": "/play/",
-      "label": "Contacts",
-      "submenu": [],
-      "openInNewTab": false
-    },
-    {
-      "link": "/play/",
       "label": "Privacy Policy",
-      "submenu": [],
-      "openInNewTab": false
-    },
-    {
-      "link": "/play/",
-      "label": "Betting Rule",
       "submenu": [],
       "openInNewTab": false
     },
@@ -249,22 +231,22 @@
     },
     {
       "link": "/play/",
-      "label": "Cookies Policy",
+      "label": "Terms & Conditions",
       "submenu": [],
       "openInNewTab": false
     },
     {
       "link": "/play/",
-      "label": "Terms & Conditions",
+      "label": "About Us",
       "submenu": [],
       "openInNewTab": false
     }
   ],
   "footer_images": [
     {
-      "link": "https://www.gambleaware.org/",
-      "image": "/uploads/7b5af286adade20c01b9aee4e0251787.webp",
-      "image_alt": "be gamble aware"
+      "link": "/play/",
+      "image": "/uploads/29ad6e8e1fc087f97738038aa420f4ea.svg",
+      "image_alt": "18+"
     },
     {
       "link": "https://www.gamcare.org.uk/",
@@ -283,8 +265,13 @@
     },
     {
       "link": "/play/",
-      "image": "/uploads/2767b5abec611eeaecc8af4ad65c2a43.svg",
-      "image_alt": "btc"
+      "image": "/uploads/acd94c7d64c4572fa58fc8f828f74bd8.svg",
+      "image_alt": "googlepay"
+    },
+    {
+      "link": "/play/",
+      "image": "/uploads/292521eb44c05ec0fdfefa6dbaa3dd0c.svg",
+      "image_alt": "apple pay"
     }
   ],
   "Slots": [
@@ -352,9 +339,9 @@
       "question": "Can I play Spookino games on my mobile phone?"
     }
   ],
-  "_generated_at": "2026-09-30T15:17:20.885Z",
+  "_generated_at": "2026-09-30T15:25:20.420Z",
   "_version": "1.0.0",
   "content_alt": "spookino pic2",
-  "_last_deploy": "2026-09-30T15:17:21.440Z",
-  "_deploy_trigger": "dgocy"
+  "_last_deploy": "2026-09-30T15:25:21.022Z",
+  "_deploy_trigger": "yr9f68"
 }
