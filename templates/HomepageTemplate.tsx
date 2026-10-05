@@ -125,11 +125,13 @@ interface SiteData {
   secondary_background?: string
   button_background?: string
   button_text?: string
+  button_text_color?: string
   text_color?: string
   color_highlight_text?: string
   color_main_btn_text?: string
   Slots?: Slot[]
   Bonuses?: Bonus[]
+  bonuses?: Bonus[]
   main_background_img?: any
   popup_logo?: any
   footer_images?: FooterImage[]
@@ -209,7 +211,7 @@ const styles = `
   }
   .btn-outline:hover { background: var(--primary); color: var(--primary-foreground); }
 
-  .btn-primary { background: var(--button-bg); color: var(--primary-foreground); }
+  .btn-primary { background: var(--button-bg); color: var(--button-text-color); }
   .btn-primary:hover { opacity: 0.9; }
 
   .btn-lg { padding: 1rem 2rem; font-size: 1.125rem; }
@@ -716,6 +718,7 @@ export default function HomepageTemplate({ page, site }: { page: PageData; site:
   const buttonBackground = page.button_background || site.button_background || '#f59e0b'
   const ctaBackground = page.cta_background || site.cta_background || buttonBackground
   const buttonText = page.button_text || site.button_text || '#1a202c'
+  const buttonTextColor = page.button_text_color || site.button_text_color || page.button_text || site.button_text || '#1a202c'
   const textColor = page.text_color || site.text_color || '#f7fafc'
   const colorHighlightText = page.color_highlight_text || site.color_highlight_text || '#f59e0b'
   const colorMainBtnText = page.color_main_btn_text || site.color_main_btn_text || 'fff'
@@ -723,7 +726,8 @@ export default function HomepageTemplate({ page, site }: { page: PageData; site:
   const siteName = site.site_name || site.name || 'LuckySpin'
   const heroTitle = page.heroTitle || page.hero_title || site.heroTitle || site.hero_title || 'Get 200% Bonus'
   const heroSubtitle = page.heroSubtitle || page.hero_subtitle || site.heroSubtitle || site.hero_subtitle || 'Up to \u20AC1,000 + 100 Free Spins'
-  const heroBadge = page.heroBadge || page.hero_badge || site.heroBadge || site.hero_badge || 'Welcome Bonus'
+  const pageHeroBadge = Object.prototype.hasOwnProperty.call(page, 'heroBadge') ? page.heroBadge : page.hero_badge
+  const heroBadge = typeof pageHeroBadge === 'string' ? pageHeroBadge.trim() : ''
   const ctaText = page.ctaText || page.cta_text || site.ctaText || site.cta_text || 'Play Now'
   const tagline = page.tagline || site.tagline || 'Start your winning journey today with the best welcome offer in online gaming!'
   const popupText = page.popup_text || site.popup_text || 'Welcome Bonus: 100% up to $500 + 200 Free Spins!'
@@ -807,7 +811,10 @@ export default function HomepageTemplate({ page, site }: { page: PageData; site:
     pageBonuses = page.bonuses
   }
 
-  const siteBonuses = Array.isArray(site.Bonuses) ? site.Bonuses : []
+  const siteBonusFallbacks = Array.isArray(site.bonuses) ? site.bonuses : []
+  const siteBonuses = Array.isArray(site.Bonuses) && site.Bonuses.length > 0
+    ? site.Bonuses
+    : siteBonusFallbacks
   const bonuses = pageBonuses.length > 0 ? pageBonuses : siteBonuses
 
   const dynamicStyles = `
@@ -825,6 +832,7 @@ export default function HomepageTemplate({ page, site }: { page: PageData; site:
       --button-bg: ${buttonBackground};
       --cta-bg: ${ctaBackground};
       --button-text: ${buttonText};
+      --button-text-color: ${buttonTextColor};
       --color-main-btn: ${colorMainBtnText};
     }
   `
@@ -1023,7 +1031,7 @@ export default function HomepageTemplate({ page, site }: { page: PageData; site:
           <div className="hero-overlay"></div>
           <div className="container">
             <div className="hero-content">
-              <span className="hero-badge">{heroBadge}</span>
+              {heroBadge && <span className="hero-badge">{heroBadge}</span>}
               <div className="hero-background">
                 <h1 className="hero-title">
                   <span className="hero-accent">{heroTitle}</span>
@@ -1097,12 +1105,16 @@ export default function HomepageTemplate({ page, site }: { page: PageData; site:
                 </button>
                 <div className="bonuses-grid">
                   {bonuses.slice(bonusStartIndex, bonusStartIndex + visibleBonuses).map((bonus, index) => {
+                    const bonusIndex = bonusStartIndex + index
+                    const siteBonus = siteBonuses[bonusIndex]
+                    const fallbackBonus = siteBonusFallbacks[bonusIndex]
                     const bonusLogo = getMediaUrl(bonus.logo)
+                    const bonusName = bonus.Name || bonus.name || siteBonus?.Name || siteBonus?.name || fallbackBonus?.Name || fallbackBonus?.name || `Bonus ${bonusIndex + 1}`
                     return (
                       <div key={bonus.id || index} className="bonus-card">
                         <div className="bonus-header">
                           {bonusLogo ? (
-                            <img src={bonusLogo} alt={bonus.logo_alt || getMediaAlt(bonus.logo, bonus.Name || bonus.name || `Bonus ${index + 1}`)} />
+                            <img src={bonusLogo} alt={bonus.logo_alt || getMediaAlt(bonus.logo, bonusName)} />
                           ) : (
                             <svg className="bonus-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
@@ -1110,7 +1122,7 @@ export default function HomepageTemplate({ page, site }: { page: PageData; site:
                           )}
                         </div>
                         <div className="bonus-content">
-                          <h3 className="bonus-name">{bonus.Name || `Bonus ${index + 1}`}</h3>
+                          <h3 className="bonus-name">{bonusName}</h3>
                           <button
                             className="btn btn-primary"
                             style={{ width: '100%', padding: '0.5rem' }}

@@ -44,6 +44,7 @@ interface PageData {
   hero_subtitle?: string
   heroSubtitle?: string
   hero_badge?: string
+  heroBadge?: string
   heroImage?: string | MediaFile | MediaFile[] | null
   hero_image?: string | MediaFile | MediaFile[] | null
   cta_text?: string
@@ -55,6 +56,7 @@ interface PageData {
   secondary_background?: string
   button_background?: string
   button_text?: string
+  button_text_color?: string
   text_color?: string
   color_highlight_text?: string
   color_main_btn_text?: string
@@ -96,6 +98,7 @@ interface SiteData {
   secondary_background?: string
   button_background?: string
   button_text?: string
+  button_text_color?: string
   text_color?: string
   color_highlight_text?: string
   color_main_btn_text?: string
@@ -158,7 +161,7 @@ const styles = `
   }
   .btn-outline { background: transparent; border: 1px solid var(--primary); color: var(--primary); }
   .btn-outline:hover { background: var(--primary); color: var(--primary-foreground); }
-  .btn-primary { background: var(--button-bg); color: var(--primary-foreground); }
+  .btn-primary { background: var(--button-bg); color: var(--button-text-color); }
   .btn-primary:hover { opacity: 0.9; }
   .btn-lg { padding: 1rem 2rem; font-size: 1.125rem; }
   .btn-hero { background: var(--cta-bg); box-shadow: 0 0 30px hsla(var(--button-bg), 0.4); }
@@ -514,6 +517,7 @@ export default function MinimalTemplate({ page, site }: { page: PageData; site: 
   const buttonBackground = page.button_background || site.button_background || '#f59e0b'
   const ctaBackground = page.cta_background || site.cta_background || buttonBackground
   const buttonText = page.button_text || site.button_text || '#1a202c'
+  const buttonTextColor = page.button_text_color || site.button_text_color || page.button_text || site.button_text || '#1a202c'
   const textColor = page.text_color || site.text_color || '#f7fafc'
   const colorHighlightText = page.color_highlight_text || site.color_highlight_text || '#f59e0b'
   const colorMainBtnText = page.color_main_btn_text || site.color_main_btn_text || '#fff'
@@ -523,7 +527,8 @@ export default function MinimalTemplate({ page, site }: { page: PageData; site: 
   const metaDescription = pageSeoDescription || extractMetaDescription(htmlHeadContent)
   const heroTitle = page.heroTitle || page.hero_title || site.heroTitle || site.hero_title || page.title || siteName
   const heroSubtitle = page.heroSubtitle || page.hero_subtitle || site.heroSubtitle || site.hero_subtitle || ''
-  const heroBadge = page.hero_badge || site.hero_badge || ''
+  const pageHeroBadge = Object.prototype.hasOwnProperty.call(page, 'heroBadge') ? page.heroBadge : page.hero_badge
+  const heroBadge = typeof pageHeroBadge === 'string' ? pageHeroBadge.trim() : ''
   const ctaText = page.cta_text || site.cta_text || ''
   const redirectLink = page.cta_link || page.redirect_link || site.redirect_link || '/'
   const loginText = page.login_text || site.login_text
@@ -594,6 +599,7 @@ export default function MinimalTemplate({ page, site }: { page: PageData; site: 
       --button-bg: ${buttonBackground};
       --cta-bg: ${ctaBackground};
       --button-text: ${buttonText};
+      --button-text-color: ${buttonTextColor};
       --color-main-btn: ${colorMainBtnText};
     }
   `

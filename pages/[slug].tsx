@@ -163,6 +163,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     secondary_background: data.secondary_background,
     button_background: data.button_background,
     button_text: data.button_text,
+    button_text_color: data.button_text_color,
     text_color: data.text_color,
     color_highlight_text: data.color_highlight_text,
     color_main_btn_text: data.color_main_btn_text,

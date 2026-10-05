@@ -103,6 +103,7 @@ interface CasinoData {
   secondary_background?: string
   button_background?: string
   button_text?: string
+  button_text_color?: string
   text_color?: string
   color_highlight_text?: string
   color_main_btn_text?: string
@@ -113,6 +114,7 @@ interface CasinoData {
   // Repeatable components
   Slots?: Slot[]
   Bonuses?: Bonus[]
+  bonuses?: Bonus[]
   header_menu?: MenuItem[]
   footer_menu?: MenuItem[]
   footer_images?: FooterImage[]
@@ -233,7 +235,7 @@ const styles = `
 
   .btn-primary {
     background: var(--button-bg);
-    color: var(--primary-foreground);
+    color: var(--button-text-color);
   }
 
   .btn-primary:hover {
@@ -1276,6 +1278,7 @@ export default function TupchiyTemplate() {
   const buttonBackground = data.button_background || '#f59e0b' // default amber
   const ctaBackground = data.cta_background || buttonBackground
   const buttonText = data.button_text || '#1a202c' // default dark
+  const buttonTextColor = data.button_text_color || data.button_text || '#1a202c'
   const textColor = data.text_color || '#f7fafc' // default light
   const colorHighlightText = data.color_highlight_text || '#f59e0b'
   const colorMainBtnText = data.color_main_btn_text || 'fff'
@@ -1304,7 +1307,8 @@ export default function TupchiyTemplate() {
   const siteName = data.site_name || data.name || 'LuckySpin'
   const heroTitle = data.hero_title || 'Get 200% Bonus'
   const heroSubtitle = data.hero_subtitle || 'Up to €1,000 + 100 Free Spins'
-  const heroBadge = data.hero_badge || '🎰 Welcome Bonus'
+  const dataHeroBadge = Object.prototype.hasOwnProperty.call(data, 'heroBadge') ? data.heroBadge : data.hero_badge
+  const heroBadge = typeof dataHeroBadge === 'string' ? dataHeroBadge.trim() : ''
   const ctaText = data.cta_text || 'Play Now'
   const popupText = data.popup_text || '🎁 Welcome Bonus: 100% up to $500 + 200 Free Spins!'
   // New variable
@@ -1342,6 +1346,7 @@ export default function TupchiyTemplate() {
       --button-bg: ${buttonBackground};
       --cta-bg: ${ctaBackground};
       --button-text: ${buttonText};
+      --button-text-color: ${buttonTextColor};
       --color-main-btn: ${colorMainBtnText};
     }
   `;
@@ -1349,7 +1354,10 @@ export default function TupchiyTemplate() {
   // Mock slots data if not provided
   const slots = data.Slots && data.Slots.length > 0 ? data.Slots : []
 
-  const bonuses = data.Bonuses && data.Bonuses.length > 0 ? data.Bonuses : []
+  const dataBonusFallbacks = Array.isArray(data.bonuses) ? data.bonuses : []
+  const bonuses = Array.isArray(data.Bonuses) && data.Bonuses.length > 0
+      ? data.Bonuses
+      : dataBonusFallbacks
 
   useEffect(() => {
     const handleScroll = () => {
@@ -1573,7 +1581,7 @@ export default function TupchiyTemplate() {
           <div className="hero-overlay"></div>
           <div className="container">
             <div className="hero-content">
-              <span className="hero-badge">{heroBadge}</span>
+              {heroBadge && <span className="hero-badge">{heroBadge}</span>}
               <div className="hero-background">
                 <h1 className="hero-title">
                   <span className="hero-accent">{heroTitle}</span>
@@ -1677,7 +1685,10 @@ export default function TupchiyTemplate() {
 
               <div className="bonuses-grid">
                 {bonuses.slice(bonusStartIndex, bonusStartIndex + visibleBonuses).map((bonus, index) => {
+                  const bonusIndex = bonusStartIndex + index
+                  const fallbackBonus = dataBonusFallbacks[bonusIndex]
                   const bonusLogo = getMediaUrl(bonus.logo)
+                  const bonusName = bonus.Name || bonus.name || fallbackBonus?.Name || fallbackBonus?.name || `Bonus ${bonusIndex + 1}`
 
                   return (
                       <div key={bonus.id || index} className="bonus-card">
@@ -1685,7 +1696,7 @@ export default function TupchiyTemplate() {
                           {bonusLogo ? (
                               <img
                                   src={bonusLogo}
-                                  alt={bonus.logo_alt || getMediaAlt(bonus.logo, bonus.Name || bonus.name || `Bonus ${index + 1}`)}
+                                  alt={bonus.logo_alt || getMediaAlt(bonus.logo, bonusName)}
 
                               />
                           ) : (
@@ -1696,7 +1707,7 @@ export default function TupchiyTemplate() {
                         </div>
 
                         <div className="bonus-content">
-                          <h3 className="bonus-name">{bonus.Name || `Bonus ${index + 1}`}</h3>
+                          <h3 className="bonus-name">{bonusName}</h3>
 
                           <button
                               className="btn btn-primary"

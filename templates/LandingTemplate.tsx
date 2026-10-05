@@ -76,6 +76,7 @@ interface PageData {
   secondary_background?: string
   button_background?: string
   button_text?: string
+  button_text_color?: string
   text_color?: string
   color_highlight_text?: string
   color_main_btn_text?: string
@@ -148,6 +149,7 @@ interface SiteData {
   secondary_background?: string
   button_background?: string
   button_text?: string
+  button_text_color?: string
   text_color?: string
   color_highlight_text?: string
   color_main_btn_text?: string
@@ -273,7 +275,7 @@ const styles = `
 
   .btn-primary {
     background: var(--button-bg);
-    color: var(--primary-foreground);
+    color: var(--button-text-color);
   }
 
   .btn-primary:hover {
@@ -1404,13 +1406,15 @@ export default function LandingTemplate({ page, site }: { page: PageData; site: 
   const buttonBackground = data.button_background || '#f59e0b' // default amber
   const ctaBackground = data.cta_background || buttonBackground
   const buttonText = data.button_text || '#1a202c' // default dark
+  const buttonTextColor = data.button_text_color || data.button_text || '#1a202c'
   const textColor = data.text_color || '#f7fafc' // default light
   const colorHighlightText = data.color_highlight_text || '#f59e0b'
   const colorMainBtnText = data.color_main_btn_text || 'fff'
 
   const heroTitle = page.heroTitle || page.hero_title || data.heroTitle || data.hero_title || 'Get 200% Bonus'
   const heroSubtitle = page.heroSubtitle || page.hero_subtitle || data.heroSubtitle || data.hero_subtitle || 'Up to €1,000 + 100 Free Spins'
-  const heroBadge = page.hero_badge || data.hero_badge || '🎰 Welcome Bonus'
+  const pageHeroBadge = Object.prototype.hasOwnProperty.call(page, 'heroBadge') ? page.heroBadge : page.hero_badge
+  const heroBadge = typeof pageHeroBadge === 'string' ? pageHeroBadge.trim() : ''
   const ctaText = data.cta_text || 'Play Now'
   const [showPopup, setShowPopup] = useState(false)
   const [isPopupDismissed, setIsPopupDismissed] = useState(false)
@@ -1467,6 +1471,7 @@ export default function LandingTemplate({ page, site }: { page: PageData; site: 
       --button-bg: ${buttonBackground};
       --cta-bg: ${ctaBackground};
       --button-text: ${buttonText};
+      --button-text-color: ${buttonTextColor};
       --color-main-btn: ${colorMainBtnText};
     }
   `;
@@ -1645,7 +1650,7 @@ export default function LandingTemplate({ page, site }: { page: PageData; site: 
         <div className="hero-overlay"></div>
         <div className="container">
           <div className="hero-content">
-            <span className="hero-badge">{heroBadge}</span>
+            {heroBadge && <span className="hero-badge">{heroBadge}</span>}
             <div className="hero-background">
               <h1 className="hero-title">
                 <span className="hero-accent">{heroTitle}</span>
