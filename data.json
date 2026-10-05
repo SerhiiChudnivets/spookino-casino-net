@@ -136,7 +136,7 @@
       "heroImage": "/uploads/6503c34d8523435d0937f109b01de578.webp",
       "template": "homepage",
       "isHomepage": false,
-      "order": 2,
+      "order": 0,
       "lang": "nl-NL",
       "faqTitle": "FAQ – Veelgestelde Vragen",
       "popupText": "Welkomstbonus van 333% tot €666",
@@ -253,7 +253,7 @@
       "heroImage": "/uploads/6503c34d8523435d0937f109b01de578.webp",
       "template": "homepage",
       "isHomepage": false,
-      "order": 1,
+      "order": 0,
       "lang": "pl-PL",
       "faqTitle": "Najczęściej Zadawane Pytania (FAQ)",
       "popupText": "Bonus powitalny  100% do 2 500 zł  + 200 darmowych spinów",
@@ -601,9 +601,9 @@
       "question": "Can I play Spookino games on my mobile phone?"
     }
   ],
-  "_generated_at": "2026-10-05T13:06:19.436Z",
+  "_generated_at": "2026-10-05T13:32:48.706Z",
   "_version": "1.0.0",
   "content_alt": "spookino pic2",
-  "_last_deploy": "2026-10-05T13:06:20.045Z",
-  "_deploy_trigger": "q1b2k"
+  "_last_deploy": "2026-10-05T13:32:49.303Z",
+  "_deploy_trigger": "jkb987"
 }
