@@ -5,7 +5,7 @@
   "url": "spookino-casino.net",
   "template": "tupchiy",
   "language_code": "en",
-  "allow_indexing": false,
+  "allow_indexing": true,
   "redirect_404s_to_homepage": true,
   "use_www_version": false,
   "breadcrumbs": true,
@@ -610,9 +610,9 @@
       "question": "Can I play Spookino games on my mobile phone?"
     }
   ],
-  "_generated_at": "2026-10-06T14:22:16.489Z",
+  "_generated_at": "2026-10-07T09:36:42.333Z",
   "_version": "1.0.0",
   "content_alt": "spookino pic2",
-  "_last_deploy": "2026-10-06T14:22:17.238Z",
-  "_deploy_trigger": "uwlj8e"
+  "_last_deploy": "2026-10-07T09:36:42.968Z",
+  "_deploy_trigger": "1fy1e"
 }
